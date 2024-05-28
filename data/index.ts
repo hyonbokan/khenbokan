@@ -1,7 +1,7 @@
 export const navItems = [
     { name: "About", link: "#about" },
     { name: "Projects", link: "#projects" },
-    { name: "Testimonials", link: "#testimonials" },
+    { name: "Research", link: "#testimonials" },
     { name: "Contact", link: "#contact" },
   ];
   
@@ -59,7 +59,7 @@ export const navItems = [
     },
     {
       id: 6,
-      title: "Do you want to start a project together?",
+      title: "Contacts",
       description: "",
       className: "lg:col-span-2 md:col-span-3 md:row-span-1",
       imgClassName: "",
@@ -75,7 +75,7 @@ export const navItems = [
       title: "BGP-LLaMA",
       des: "Web app demonstrating finetuned open-source LLM for BGP data analysis",
       img: "/p1.svg",
-      iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/django.svg", "/fm.svg"],
+      iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/next.svg", "/fm.svg"],
       link: "https://github.com/hyonbokan/BGP-LLaMA-webservice",
     },
     {
