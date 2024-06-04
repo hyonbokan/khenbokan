@@ -19,8 +19,8 @@ export default function Home() {
           navItems
           }/>
         <Hero />
-        <RecentProjects />
         <Experience />
+        <RecentProjects />
         <Process />
         <Grid />
         <Footer />
