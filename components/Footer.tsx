@@ -18,10 +18,10 @@ const Footer = () => {
             <h1 className='heading lg:max-w-[45vw]'>
                 Do you want to <span className='text-purple'>reach out</span>?
             </h1>
-            <p className='text-white-200 md:mt-10 my-5 text-center'> Description text</p>
-            <a href='mailto:contact@jsmastery.pro'>
+            {/* <p className='text-white-200 md:mt-10 my-5 text-center'> Description text</p> */}
+            <a href='mailto:hyonbokan@gmail.com'>
                 <MagicButton 
-                    title="Let's get in touch"
+                    title="Contact via email"
                     icon={<FaLocationArrow />}
                     position="right"
                 />
