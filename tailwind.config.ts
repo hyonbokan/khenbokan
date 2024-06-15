@@ -37,6 +37,11 @@ const config = {
           DEFAULT: "#FFF",
           100: "#BEC1DD",
           200: "#C1C2D3",
+          apple: '#F5F5F7'
+        },
+        gray: {
+          'space-dark': '#1c1c1e',
+          'space-light': '#2c2c2e',
         },
         blue: {
           "100": "#E4ECFF",
