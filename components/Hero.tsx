@@ -25,7 +25,7 @@ const Hero = () => {
         <div className='max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] 
           flex flex-col items-center justify-center'>
           <h2 className='uppercase tracking-widest 
-            text-xs text-center text-black-100 max-w-80'>
+            text-xs text-center text-white-100 max-w-80'>
             Welcome to My Portfolio!
           </h2>
 
@@ -34,7 +34,7 @@ const Hero = () => {
             words="My name is Khen Bo"
           />
 
-          <p className='text-center text-black-100 md:tracking-wider
+          <p className='text-center text-white-100 md:tracking-wider
             mb-4 text-lg md:text-xl lg:text-2xl'>
             Self-intro: title, education, achievements
           </p>
