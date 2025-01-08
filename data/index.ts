@@ -1,8 +1,8 @@
 export const navItems = [
     { name: "Top", link: "#hero" },
-    { name: "About", link: "#about" },
     { name: "Projects", link: "#projects" },
     { name: "Experience", link: "#testimonials" },
+    { name: "About", link: "#about" },
     { name: "Contact", link: "#contact" },
   ];
   
@@ -76,15 +76,31 @@ export const navItems = [
       title: "BGP-LLaMA",
       des: "Web app demonstrating finetuned open-source LLM for BGP data analysis",
       img: "/p1.svg",
-      iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/next.svg", "/fm.svg"],
-      link: "https://github.com/hyonbokan/BGP-LLaMA-webservice",
+      iconLists: ["/re.svg", "/js.svg", "/ts.svg", "mui.svg", "python.svg", "django.svg", ],
+      link: "https://llama.cnu.ac.kr",
     },
     {
       id: 2,
-      title: "Swift UIkit Projects",
-      des: "Four projects built using UIkit: Personal Blog, ToDoList, Airbnb",
+      title: "UIkit/SwitUI Projects",
+      des: "Four projects built using UIkit and SwiftUI: Personal Blog, ToDoList, Airbnb",
       img: "/p2.svg",
-      iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
+      iconLists: ["/swift.svg", "/firebase.svg", "/xcode.svg"],
+      link: "https://github.com/hyonbokan/Swift-UIkit-Projects",
+    },
+    {
+      id: 3,
+      title: "Job Application Management",
+      des: "...",
+      img: "/p2.svg",
+      iconLists: ["/re.svg", "/js.svg", "/ts.svg", "mui.svg", "/java.svg", "/spring.svg", "/mvn.svg"],
+      link: "https://github.com/hyonbokan/Swift-UIkit-Projects",
+    },
+    {
+      id: 4,
+      title: "E-commerce Web App",
+      des: "...",
+      img: "/p2.svg",
+      iconLists: ["/re.svg", "/js.svg", "/ts.svg", "mui.svg", "/java.svg", "/spring.svg", "/mvn.svg"],
       link: "https://github.com/hyonbokan/Swift-UIkit-Projects",
     },
   ];
@@ -148,11 +164,11 @@ export const navItems = [
     },
     {
       id: 2,
-      img: "/twit.svg",
-    },
-    {
-      id: 3,
       img: "/link.svg",
       link: "https://www.linkedin.com/in/khen-bo-kan-2909a716b/"
     },
+    // {
+    //   id: 3,
+    //   img: "/twit.svg",
+    // },
   ];
