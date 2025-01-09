@@ -99,7 +99,7 @@ export const navItems = [
       id: 4,
       title: "E-commerce Web App",
       des: "A scalable e-commerce platform with secure user authentication, product management, and order processing using Spring Boot and React",
-      img: "",
+      img: "/ecom.png",
       iconLists: ["/re.svg", "/js.svg", "/ts.svg", "mui.svg", "/java.svg", "/spring.svg", "/mvn.svg"],
       link: "https://github.com/hyonbokan/SpringBoot_Ecommerce",
     },
@@ -143,18 +143,25 @@ export const navItems = [
     {
       id: 1,
       title: "Graduate Researcher",
-      desc: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
+      desc: "Developed an AI-powered web app for BGP anomaly detection, integrating GPT and fine-tuned LLaMA models with a React frontend and Django backend.",
       className: "md:col-span-2",
-      thumbnail: "/exp1.svg",
+      thumbnail: "/ml.png",
     },
     {
       id: 2,
       title: "Business Coordinator",
-      desc: "Designed and developed mobile app for both iOS & Android platforms using React Native.",
+      desc: "Conducted market research, data analysis, and client relationship management for business expansion projects.",
       className: "md:col-span-2",
-      thumbnail: "/exp2.svg",
+      thumbnail: "/business.png",
     },
-  ];
+    {
+      id: 3,
+      title: "Staff Manager",
+      desc: "Oversaw strategic planning, recruitment, and staff supervision while representing the company in industry events.",
+      className: "md:col-span-2",
+      thumbnail: "/manager.png",
+    },
+  ];  
   
   export const socialMedia = [
     {
