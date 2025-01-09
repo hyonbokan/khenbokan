@@ -40,7 +40,7 @@ const Hero = () => {
             mb-4 text-lg md:text-xl lg:text-2xl'>
             Graduate researcher in Computer Science, specializing in AI-driven network management for beyond 5G, aspiring to build innovative solutions as a software engineer.
           </p>
-          <a href='#about'>
+          <a href='#projects'>
             <MagicButton
               title='Show my work'
               icon={<FaLocationArrow />}
