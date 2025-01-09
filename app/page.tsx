@@ -22,7 +22,7 @@ export default function Home() {
         <Hero />
         <Experience />
         <RecentProjects />
-        <Grid />
+        {/* <Grid /> */}
         <Footer />
       </div>
     </main>
