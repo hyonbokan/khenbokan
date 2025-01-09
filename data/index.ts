@@ -50,14 +50,14 @@ export const navItems = [
   
     {
       id: 5,
-      title: "Currently building a JS Animation library",
-      description: "The Inside Scoop",
+      title: "Open to Software Development Opportunities",
+      description: "Actively seeking positions as a software developer specializing in Java Spring Boot, iOS development, and AI research.",
       className: "md:col-span-3 md:row-span-2",
       imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
       titleClassName: "justify-center md:justify-start lg:justify-center",
       img: "/b5.svg",
       spareImg: "/grid.svg",
-    },
+    },    
     {
       id: 6,
       title: "Contacts",
@@ -75,7 +75,7 @@ export const navItems = [
       id: 1,
       title: "BGP-LLaMA",
       des: "Web app demonstrating finetuned open-source LLM for BGP data analysis",
-      img: "/p1.svg",
+      img: "/bgp-llama.png",
       iconLists: ["/re.svg", "/js.svg", "/ts.svg", "mui.svg", "python.svg", "django.svg", ],
       link: "https://llama.cnu.ac.kr",
     },
@@ -83,25 +83,25 @@ export const navItems = [
       id: 2,
       title: "UIkit/SwitUI Projects",
       des: "Four projects built using UIkit and SwiftUI: Personal Blog, ToDoList, Airbnb",
-      img: "/p2.svg",
+      img: "/ios-projects.png",
       iconLists: ["/swift.svg", "/firebase.svg", "/xcode.svg"],
       link: "https://github.com/hyonbokan/Swift-UIkit-Projects",
     },
     {
       id: 3,
       title: "Job Application Management",
-      des: "...",
-      img: "",
+      des: "A full-stack web app for tracking and managing job applications, featuring a Spring Boot backend, React frontend",
+      img: "/job-app.png",
       iconLists: ["/re.svg", "/js.svg", "/ts.svg", "mui.svg", "/java.svg", "/spring.svg", "/postgresql.svg", "/mvn.svg"],
-      link: "https://github.com/hyonbokan/Swift-UIkit-Projects",
+      link: "https://github.com/hyonbokan/jobManagement",
     },
     {
       id: 4,
       title: "E-commerce Web App",
-      des: "...",
+      des: "A scalable e-commerce platform with secure user authentication, product management, and order processing using Spring Boot and React",
       img: "",
       iconLists: ["/re.svg", "/js.svg", "/ts.svg", "mui.svg", "/java.svg", "/spring.svg", "/mvn.svg"],
-      link: "https://github.com/hyonbokan/Swift-UIkit-Projects",
+      link: "https://github.com/hyonbokan/SpringBoot_Ecommerce",
     },
   ];
 
@@ -151,7 +151,7 @@ export const navItems = [
       id: 2,
       title: "Business Coordinator",
       desc: "Designed and developed mobile app for both iOS & Android platforms using React Native.",
-      className: "md:col-span-2", // change to md:col-span-2
+      className: "md:col-span-2",
       thumbnail: "/exp2.svg",
     },
   ];

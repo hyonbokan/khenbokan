@@ -14,14 +14,14 @@ const RecentProjects = () => {
         {projects.map(({ id, title, des, img, iconLists, link }) => (
           <div key={id} className='sm:h-[41rem] h-[32rem] lg:min-h-[32.5rem] flex items-center justify-center sm:w-[570px] w-[80vw] mb-5'>
             <PinContainer title={title} href={link}>
-              <div className='relative flex items-center justify-center sm:w-[570px] w-[80vw] overflow-hidden sm:h-[40vh] h-[30vh] mb-15'>
-                <div className='relative w-full h-full overflow-hidden lg:rounded-3xl bg-[#13162d]'>
-                  <img src='/bg.png' alt='bg-img'/>
-                </div>
+            <div className='relative flex items-center justify-center sm:w-[570px] w-[80vw] overflow-hidden sm:h-[40vh] h-[30vh]'>
+              <div className='relative w-full h-full overflow-hidden lg:rounded-3xl bg-[#13162d]'>
+                <img src='/bg.png' alt='bg-img' className='w-full h-full object-cover' />
+              </div>
                 <img
                   src={img}
                   alt={title}
-                  className='z-10 absolute bottom-0'
+                  className='w-full h-full object-scale-down z-10 absolute bottom-0 '
                 />
               </div>
               <h1 className='font-bold lg:text-2xl md:text-xl text-base line-clamp-1 mt-5'>
