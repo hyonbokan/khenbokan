@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react'
 import { FaLocationArrow } from 'react-icons/fa'
 import MagicButton from './ui/MagicButton'
