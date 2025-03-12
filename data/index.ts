@@ -6,70 +6,6 @@ export const navItems = [
     { name: "Contact", link: "#contact" },
   ];
   
-  export const gridItems = [
-    {
-      id: 1,
-      title: "I prioritize client collaboration, fostering open communication ",
-      description: "",
-      className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
-      imgClassName: "w-full h-full",
-      titleClassName: "justify-end",
-      img: "/b1.svg",
-      spareImg: "",
-    },
-    {
-      id: 2,
-      title: "I'm very flexible with time zone communications",
-      description: "",
-      className: "lg:col-span-2 md:col-span-3 md:row-span-2",
-      imgClassName: "",
-      titleClassName: "justify-start",
-      img: "",
-      spareImg: "",
-    },
-    {
-      id: 3,
-      title: "My tech stack",
-      description: "I constantly try to improve",
-      className: "lg:col-span-2 md:col-span-3 md:row-span-2",
-      imgClassName: "",
-      titleClassName: "justify-center",
-      img: "",
-      spareImg: "",
-    },
-    {
-      id: 4,
-      title: "Tech enthusiast with a passion for development.",
-      description: "",
-      className: "lg:col-span-2 md:col-span-3 md:row-span-1",
-      imgClassName: "",
-      titleClassName: "justify-start",
-      img: "/grid.svg",
-      spareImg: "/b4.svg",
-    },
-  
-    {
-      id: 5,
-      title: "Open to Software Development Opportunities",
-      description: "Actively seeking positions as a software developer specializing in Java Spring Boot, iOS development, and AI research.",
-      className: "md:col-span-3 md:row-span-2",
-      imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
-      titleClassName: "justify-center md:justify-start lg:justify-center",
-      img: "/b5.svg",
-      spareImg: "/grid.svg",
-    },    
-    {
-      id: 6,
-      title: "Contacts",
-      description: "",
-      className: "lg:col-span-2 md:col-span-3 md:row-span-1",
-      imgClassName: "",
-      titleClassName: "justify-center md:max-w-full max-w-60 text-center",
-      img: "",
-      spareImg: "",
-    },
-  ];
-  
   export const projects = [
     {
       id: 1,
@@ -81,6 +17,14 @@ export const navItems = [
     },
     {
       id: 2,
+      title: "Microservices Architecture Project",
+      des: "Microservices-based architecture integrating GraphQL API, RabbitMQ, Reddis, and more",
+      img: "/micro_service.png",
+      iconLists: ["python.svg", "graphql.svg", "rabbitmq.svg", "fastapi.svg", "redis.svg", "docker.svg", "/postgresql.svg"],
+      link: "https://github.com/hyonbokan/Python_Microservice_Project",
+    },
+    {
+      id: 3,
       title: "UIkit/SwitUI Projects",
       des: "Four projects built using UIkit and SwiftUI: Personal Blog, ToDoList, Airbnb",
       img: "/ios-projects.png",
@@ -88,7 +32,7 @@ export const navItems = [
       link: "https://github.com/hyonbokan/Swift-UIkit-Projects",
     },
     {
-      id: 3,
+      id: 4,
       title: "Job Application Management",
       des: "A full-stack web app for tracking and managing job applications, featuring a Spring Boot backend, React frontend",
       img: "/job-app.png",
@@ -96,9 +40,9 @@ export const navItems = [
       link: "https://github.com/hyonbokan/jobManagement",
     },
     {
-      id: 4,
+      id: 5,
       title: "E-commerce Web App",
-      des: "A scalable e-commerce platform with secure user authentication, product management, and order processing using Spring Boot and React",
+      des: "E-commerce platform with secure user authentication, product management, and order processing with Spring Boot and React",
       img: "/ecom.png",
       iconLists: ["/re.svg", "/js.svg", "/ts.svg", "mui.svg", "/java.svg", "/spring.svg", "/mvn.svg"],
       link: "https://github.com/hyonbokan/SpringBoot_Ecommerce",

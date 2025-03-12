@@ -15,14 +15,6 @@ const Hero = () => {
         <Spotlight className='top-28  h-[80vh] w-[50vw]' fill='blue' />
       </div>
 
-      {/* Grid background */}
-        {/* <div className="h-screen w-full dark:bg-gray-space-dark 100 bg-white-apple dark:bg-grid-white/[0.03] bg-grid-black-100/[0.2]
-       absolute z-0 top-0 left-0 flex items-center justify-center">
-          <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100
-         bg-white-apple [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
-        </div> */}
-      {/* Grid background */}
-
       <div className='flex justify-center relative my-20 z-10'>
         <div className='max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] 
           flex flex-col items-center justify-center'>
@@ -38,7 +30,7 @@ const Hero = () => {
 
           <p className='text-center text-white-100 md:tracking-wider
             mb-4 text-lg md:text-xl lg:text-2xl'>
-            Graduate researcher in Computer Science, specializing in AI-driven network management for beyond 5G, aspiring to build innovative solutions as a software engineer.
+            Software engineer with experience in AI-powered automation, scalable microservices, and distributed systems, building efficient and high-performance applications.
           </p>
           <a href='#projects'>
             <MagicButton
