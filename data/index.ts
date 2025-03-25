@@ -86,25 +86,32 @@ export const navItems = [
   export const workExperience = [
     {
       id: 1,
-      title: "Graduate Researcher",
-      desc: "Developed an AI-powered web app for BGP anomaly detection, integrating GPT and fine-tuned LLaMA models with a React frontend and Django backend.",
+      title: "Intern",
+      desc: "Contributed to AuditAgent project by integrating fine-tuning workflows with planning and agentic behavior development. Worked on enhancing MCP for context-aware interaction between components.",
       className: "md:col-span-2",
-      thumbnail: "/ml.png",
-    },
+      thumbnail: "/nethermind.png",
+    },    
     {
       id: 2,
-      title: "Business Coordinator",
-      desc: "Conducted market research, data analysis, and client relationship management for business expansion projects.",
+      title: "Graduate Researcher",
+      desc: "Developed an AI-powered web app for BGP anomaly detection, integrating fine-tuned LLaMA models and promt-engineered GPT model with a React frontend and Django backend.",
       className: "md:col-span-2",
-      thumbnail: "/business.png",
+      thumbnail: "/cnu.png",
     },
-    {
-      id: 3,
-      title: "Staff Manager",
-      desc: "Oversaw strategic planning, recruitment, and staff supervision while representing the company in industry events.",
-      className: "md:col-span-2",
-      thumbnail: "/manager.png",
-    },
+    // {
+    //   id: 2,
+    //   title: "Business Coordinator",
+    //   desc: "Conducted market research, data analysis, and client relationship management for business expansion projects.",
+    //   className: "md:col-span-2",
+    //   thumbnail: "/business.png",
+    // },
+    // {
+    //   id: 3,
+    //   title: "Staff Manager",
+    //   desc: "Oversaw strategic planning, recruitment, and staff supervision while representing the company in industry events.",
+    //   className: "md:col-span-2",
+    //   thumbnail: "/manager.png",
+    // },
   ];  
   
   export const socialMedia = [
