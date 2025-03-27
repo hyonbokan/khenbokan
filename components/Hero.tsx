@@ -30,7 +30,11 @@ const Hero = () => {
 
           <p className='text-center text-white-100 md:tracking-wider
             mb-4 text-lg md:text-xl lg:text-2xl'>
-            Software engineer with experience in AI-powered automation, scalable microservices, and distributed systems, building efficient and high-performance applications.
+            LLM Systems Engineer with hands-on experience in integrating LLMs into production-level services and workflows.
+          </p>
+          <p className='text-center text-white-100 md:tracking-wider
+            mb-4 text-lg md:text-xl lg:text-2xl'>
+            Experienced in building RAG pipelines, applying prompt engineering techniques, developing LLM/NLP frameworks and MCP for integration of external tools and data sources.
           </p>
           <a href='#projects'>
             <MagicButton
