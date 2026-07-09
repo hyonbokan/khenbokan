@@ -1,27 +1,9 @@
 "use client";
 
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 
-type TraceLine = { cls?: string; tag?: string; content: ReactNode };
-
-const TRACE: TraceLine[] = [
-  {
-    cls: "cmd",
-    content: (
-      <>
-        <span className="prompt">$</span>{" "}
-        <span className="msg">khen_bo --whoami</span>
-      </>
-    ),
-  },
-  { tag: "role", content: "applied AI / LLM engineer" },
-  { tag: "builds", content: "autonomous agents · RAG · agent memory" },
-  { tag: "stack", content: "Python · FastAPI · PyTorch · LLMOps" },
-  { tag: "models", content: "OpenAI · Anthropic · Google" },
-  { tag: "serving", content: "self-hosted open models · vLLM · TGI" },
-  { cls: "done", tag: "shipped", content: "AuditAgent · BGP-LLaMA · IEEE paper" },
-];
+const PAPER_URL = "https://ieeexplore.ieee.org/document/10583947";
 
 function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
@@ -34,37 +16,14 @@ function ThemeToggle() {
       aria-label="Toggle color theme"
       onClick={() => setTheme(isLight ? "dark" : "light")}
     >
-      {isLight ? "☀" : "☾"}
+      {isLight ? "☾" : "☀"}
     </button>
   );
 }
 
 export default function Home() {
-  const [visible, setVisible] = useState(0);
-
-  // Trace reveal
+  // Reveal below-the-fold sections on scroll.
   useEffect(() => {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) {
-      setVisible(TRACE.length);
-      return;
-    }
-    setVisible(1);
-    let i = 1;
-    let t: ReturnType<typeof setTimeout>;
-    const step = () => {
-      i += 1;
-      setVisible(i);
-      if (i < TRACE.length) t = setTimeout(step, 520);
-    };
-    t = setTimeout(step, 650);
-    return () => clearTimeout(t);
-  }, []);
-
-  // Reveal-on-scroll + metric count-up
-  useEffect(() => {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -77,63 +36,28 @@ export default function Home() {
       { threshold: 0.12 }
     );
     document.querySelectorAll(".reveal").forEach((n) => io.observe(n));
-
-    const mio = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (!e.isIntersecting) return;
-          const card = e.target as HTMLElement;
-          card.classList.add("in");
-          const v = card.querySelector(".val") as HTMLElement | null;
-          if (!v) return;
-          const to = parseInt(v.getAttribute("data-to") || "0", 10);
-          const pre = v.getAttribute("data-prefix") || "";
-          const suf = v.getAttribute("data-suffix") || "";
-          if (reduce) {
-            v.textContent = pre + to + suf;
-            mio.unobserve(card);
-            return;
-          }
-          let start: number | null = null;
-          const dur = 900;
-          const tick = (ts: number) => {
-            if (start === null) start = ts;
-            const p = Math.min((ts - start) / dur, 1);
-            const eased = 1 - Math.pow(1 - p, 3);
-            v.textContent = pre + Math.round(to * eased) + suf;
-            if (p < 1) requestAnimationFrame(tick);
-          };
-          requestAnimationFrame(tick);
-          mio.unobserve(card);
-        });
-      },
-      { threshold: 0.4 }
-    );
-    document.querySelectorAll(".metric").forEach((n) => mio.observe(n));
-
-    return () => {
-      io.disconnect();
-      mio.disconnect();
-    };
+    return () => io.disconnect();
   }, []);
 
   return (
     <>
-      <nav>
+      <nav className="nav">
         <div className="nav-inner">
-          <a href="#top" className="brand">
-            <span className="caret">▸</span> khen_bo_kan
+          <a href="#top" className="nav-name">
+            Khen Bo Kan
           </a>
-          <div className="nav-links">
-            <a href="#metrics">impact</a>
-            <a href="#experience">experience</a>
-            <a href="#work">work</a>
-            {/* <a href="#writing">writing</a> */}
-            <a href="#contact">contact</a>
+          <div className="nav-right">
+            <div className="nav-links">
+              <a href="#glance">overview</a>
+              <a href="#results">results</a>
+              <a href="#experience">experience</a>
+              <a href="#work">work</a>
+              <a href="#contact">contact</a>
+            </div>
             <ThemeToggle />
             <a
               href="/Khen_Bo_Kan_CV_AI.pdf"
-              className="nav-cta"
+              className="nav-resume"
               target="_blank"
               rel="noopener"
             >
@@ -144,332 +68,371 @@ export default function Home() {
       </nav>
 
       <main id="top">
-        {/* HERO */}
-        <div className="hero wrap">
-          <div className="hero-grid">
-            <div>
-              <span className="eyebrow">Applied AI / LLM Engineer</span>
-              <h1>
-                I build autonomous <span className="hl">LLM agents</span>, RAG
-                pipelines, and the systems that run them.
-              </h1>
-              <p className="lede">
-                Currently at Nethermind, building the agent pipeline behind
-                AuditAgent — an AI security auditor used by teams like Uniswap,
-                Lido, and UBS.
-              </p>
-              <div className="hero-cta">
-                <a href="#work" className="btn primary">
-                  View work →
-                </a>
-                <a href="#contact" className="btn">
-                  Get in touch
-                </a>
+        {/* HERO — the abstract */}
+        <header className="hero wrap">
+          <div className="grid">
+            <div className="rail">
+              <div className="spectrum rise d1" aria-hidden="true">
+                <i />
+                <i />
+                <i />
               </div>
             </div>
+            <div className="col">
+              <div className="hero-meta rise d1">
+                <span className="field">
+                  Applied LLM Engineer · Research + Systems
+                </span>
+                <span>Nethermind · 2026</span>
+              </div>
 
-            {/* SIGNATURE: whoami trace */}
-            <div className="trace" aria-label="khen_bo --whoami">
-              <div className="trace-bar">
-                <span className="dot r"></span>
-                <span className="dot y"></span>
-                <span className="dot g"></span>
-                <span className="trace-title">
-                  khen_bo · <span className="live">whoami</span>
+              <h1 className="rise d2">
+                Building language-model systems that survive production.
+              </h1>
+
+              <div className="hero-author rise d3">
+                <span className="name">Khen Bo Kan</span>
+                <span className="affil">
+                  AI Engineer, Nethermind · MSc, Chungnam Nat’l Univ.
                 </span>
               </div>
-              <div className="trace-body">
-                {TRACE.slice(0, visible).map((ln, i) => (
-                  <div key={i} className={`tline ${ln.cls || ""}`}>
-                    {ln.cls === "cmd" ? (
-                      ln.content
-                    ) : (
-                      <>
-                        {ln.tag && <span className="tag">{ln.tag}</span>}
-                        <span className="msg">{ln.content}</span>
-                      </>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
 
-        {/* METRICS */}
-        <section id="metrics" className="wrap reveal">
-          <div className="sec-head">
-            <span className="sec-num">01</span>
-            <h2>Impact, measured</h2>
-          </div>
-          <div className="metrics">
-            <div className="metric">
-              <div className="val" data-to="40" data-suffix="%">
-                40%
-              </div>
-              <div className="label">recall of professional audit findings</div>
-            </div>
-            <div className="metric">
-              <div className="val" data-to="67" data-suffix="%">
-                67%
-              </div>
-              <div className="label">on the EVMBench benchmark</div>
-            </div>
-            <div className="metric">
-              <div className="val" data-to="27" data-prefix="−" data-suffix="%">
-                −27%
-              </div>
-              <div className="label">smaller prompts via agent memory + RAG</div>
-            </div>
-            <div className="metric">
-              <div className="val" data-to="30" data-prefix="−" data-suffix="%">
-                −30%
-              </div>
-              <div className="label">inference cost on a production pipeline</div>
-            </div>
-          </div>
+              <p className="abstract rise d4">
+                <span className="label">Abstract</span>
+                I build <strong>LLM systems</strong> — and the research and
+                evaluation that keep them reliable under real load. That spans
+                fine-tuning and prompt design, retrieval and agent memory, and
+                the evals and monitoring that catch regressions before users do.
+                In production this powers <strong>AuditAgent</strong>, an AI
+                security auditor trusted by teams like Uniswap, Lido, and UBS; in
+                research it produced <strong>BGP-LLaMA</strong> and a first-author
+                IEEE paper.
+              </p>
 
-          <div className="trusted">
-            <span className="lbl">Systems I build are trusted by</span>
-            <div className="logos">
-              <span className="logo">Uniswap</span>
-              <span className="logo">Lido</span>
-              <span className="logo">CMTA</span>
-              <span className="logo">UBS</span>
+              <div className="hero-links rise d5">
+                <a href="#work" className="tlink">
+                  See the work <span className="arrow">↓</span>
+                </a>
+                <a href={PAPER_URL} target="_blank" rel="noopener" className="tlink">
+                  Read the paper <span className="arrow">↗</span>
+                </a>
+              </div>
             </div>
           </div>
-        </section>
+        </header>
 
-        {/* EXPERIENCE */}
-        <section id="experience" className="wrap reveal">
-          <div className="sec-head">
-            <span className="sec-num">02</span>
-            <h2>Experience</h2>
-          </div>
-          <div className="xp">
-            <div className="xp-row">
-              <div className="xp-meta">
-                <div className="when">2025 — present</div>
-                <div className="where">Nethermind · Remote</div>
-              </div>
-              <div className="xp-body">
-                <h3>AI Engineer — AuditAgent</h3>
-                <p>
-                  Built an autonomous, multi-stage LLM agent pipeline for
-                  smart-contract security: detection, validation, and persistent
-                  agent memory over a unified RAG indexer. Also built the
-                  in-house multi-provider LLM router (OpenAI · Anthropic ·
-                  Google) with streaming, retries, and cost tracking.
-                </p>
-                <div className="tags">
-                  <span className="tag-chip">LLM Agents</span>
-                  <span className="tag-chip">RAG</span>
-                  <span className="tag-chip">Agent Memory</span>
-                  <span className="tag-chip">LLMOps</span>
-                  <span className="tag-chip">Python</span>
-                  <span className="tag-chip">FastAPI</span>
+        {/* AT A GLANCE — model card as front-matter */}
+        <section id="glance" className="section wrap reveal">
+          <div className="grid">
+            <div className="rail">
+              <span className="kicker">Overview</span>
+            </div>
+            <div className="col">
+              <h2>At a glance</h2>
+              <div className="spec-list">
+                <div className="spec-row">
+                  <span className="k">focus</span>
+                  <span className="v">research · build · evaluate · monitor</span>
                 </div>
-              </div>
-            </div>
-            <div className="xp-row">
-              <div className="xp-meta">
-                <div className="when">2023 — 2025</div>
-                <div className="where">Chungnam National University · MSc</div>
-              </div>
-              <div className="xp-body">
-                <h3>AI Researcher — LLMs for Network Analysis</h3>
-                <p>
-                  Built BGP-LLaMA, an AI web app that cut manual
-                  network-analysis time by 96% using a fine-tuned LLaMA +
-                  prompt-engineered GPT. First-author publication in IEEE Network
-                  Magazine (Mobile-LLaMA).
-                </p>
-                <div className="tags">
-                  <span className="tag-chip">Fine-tuning</span>
-                  <span className="tag-chip">PyTorch</span>
-                  <span className="tag-chip">Hugging Face</span>
-                  <span className="tag-chip">IEEE</span>
-                  <span className="tag-chip">Django</span>
-                  <span className="tag-chip">React</span>
+                <div className="spec-row">
+                  <span className="k">domains</span>
+                  <span className="v">
+                    autonomous agents · RAG · agent memory · fine-tuning
+                  </span>
+                </div>
+                <div className="spec-row">
+                  <span className="k">stack</span>
+                  <span className="v">Python · PyTorch · FastAPI · Hugging Face</span>
+                </div>
+                <div className="spec-row">
+                  <span className="k">serving</span>
+                  <span className="v">self-hosted open models · vLLM · TGI</span>
+                </div>
+                <div className="spec-row">
+                  <span className="k">providers</span>
+                  <span className="v">OpenAI · Anthropic · Google</span>
+                </div>
+                <div className="spec-row">
+                  <span className="k">shipped</span>
+                  <span className="v">AuditAgent · BGP-LLaMA · Mobile-LLaMA (IEEE)</span>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* WORK / PROJECTS */}
-        <section id="work" className="wrap reveal">
-          <div className="sec-head">
-            <span className="sec-num">03</span>
-            <h2>Selected work</h2>
+        {/* RESULTS — a paper table */}
+        <section id="results" className="section wrap reveal">
+          <div className="grid">
+            <div className="rail">
+              <span className="kicker">Results</span>
+            </div>
+            <div className="col">
+              <h2>Selected outcomes</h2>
+              <p className="section-lede">
+                Measured on shipped systems — not benchmarks run in isolation.
+              </p>
+              <figure className="results">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td className="val">40%</td>
+                      <td className="desc">recall of professional audit findings</td>
+                      <td className="src">
+                        <span>
+                          <span className="sysdot audit" />
+                          AuditAgent
+                        </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="val">67%</td>
+                      <td className="desc">score on the EVMBench benchmark</td>
+                      <td className="src">
+                        <span>
+                          <span className="sysdot audit" />
+                          AuditAgent
+                        </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="val">−27%</td>
+                      <td className="desc">prompt size via agent memory + unified RAG</td>
+                      <td className="src">
+                        <span>
+                          <span className="sysdot audit" />
+                          AuditAgent
+                        </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="val">−96%</td>
+                      <td className="desc">manual network-analysis time</td>
+                      <td className="src">
+                        <span>
+                          <span className="sysdot bgp" />
+                          BGP-LLaMA
+                        </span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <figcaption>
+                  Table 1 — Selected outcomes from production and research systems.
+                </figcaption>
+              </figure>
+
+              <div className="trusted">
+                <span className="lbl">Systems trusted by</span>
+                <span className="names">Uniswap · Lido · CMTA · UBS</span>
+              </div>
+            </div>
           </div>
-          <div className="proj-grid">
-            <a
-              className="card"
-              href="https://auditagent.nethermind.io/"
-              target="_blank"
-              rel="noopener"
-            >
+        </section>
+
+        {/* EXPERIENCE — genuinely chronological */}
+        <section id="experience" className="section wrap reveal">
+          <div className="grid head">
+            <div className="rail">
+              <span className="kicker">Experience</span>
+            </div>
+            <div className="col">
+              <h2>Where I&apos;ve worked</h2>
+            </div>
+          </div>
+
+          <div className="grid entry">
+            <div className="rail entry-meta">
+              <div className="when">2025 — present</div>
+              <div className="where">Nethermind · Remote</div>
+            </div>
+            <div className="col entry-body">
+              <h3>AI Engineer — AuditAgent</h3>
+              <p>
+                Built an autonomous, multi-stage LLM agent pipeline for
+                smart-contract security: detection, validation, and persistent
+                agent memory over a unified RAG index. Also built the in-house
+                multi-provider LLM router (OpenAI · Anthropic · Google) with
+                streaming, retries, and cost tracking.
+              </p>
+              <div className="chips">
+                <span className="chip">LLM Agents</span>
+                <span className="chip">RAG</span>
+                <span className="chip">Agent Memory</span>
+                <span className="chip">Evaluation</span>
+                <span className="chip">Monitoring</span>
+                <span className="chip">FastAPI</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid entry">
+            <div className="rail entry-meta">
+              <div className="when">2023 — 2025</div>
+              <div className="where">Chungnam National Univ. · MSc</div>
+            </div>
+            <div className="col entry-body">
+              <h3>AI Researcher — LLMs for Network Analysis</h3>
+              <p>
+                Built BGP-LLaMA, cutting manual network-analysis time by 96% with
+                a fine-tuned LLaMA and prompt-engineered GPT. First-author
+                publication in IEEE Network Magazine (Mobile-LLaMA), including a
+                purpose-built instruction-tuning dataset.
+              </p>
+              <div className="chips">
+                <span className="chip">Fine-tuning</span>
+                <span className="chip">PyTorch</span>
+                <span className="chip">Hugging Face</span>
+                <span className="chip">IEEE</span>
+                <span className="chip">Django</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* WORK — an index of works */}
+        <section id="work" className="section wrap reveal">
+          <div className="grid head">
+            <div className="rail">
+              <span className="kicker">Work</span>
+            </div>
+            <div className="col">
+              <h2>Selected work</h2>
+            </div>
+          </div>
+
+          <div className="grid entry">
+            <div className="rail entry-meta">
+              <div className="when">2025</div>
               <div className="status">Production</div>
+            </div>
+            <div className="col entry-body">
               <h3>
-                AuditAgent <span className="arrow">↗</span>
+                <a href="https://auditagent.nethermind.io/" target="_blank" rel="noopener">
+                  AuditAgent <span className="arrow">↗</span>
+                </a>
               </h3>
               <p>
-                AI security auditor for smart contracts. Multi-agent pipeline
-                reaching 40% recall of professional findings, 67% on EVMBench,
+                AI security auditor for smart contracts. A multi-agent pipeline
+                reaching 40% recall of professional findings and 67% on EVMBench,
                 scanning up to 12k LoC per run with resumable checkpoints.
               </p>
-              <div className="tags">
-                <span className="tag-chip">Agents</span>
-                <span className="tag-chip">RAG</span>
-                <span className="tag-chip">Solidity</span>
+              <div className="chips">
+                <span className="chip">Agents</span>
+                <span className="chip">RAG</span>
+                <span className="chip">Solidity</span>
               </div>
-            </a>
-            <a
-              className="card"
-              href="https://github.com/hyonbokan/BGP-LLaMA-webservice"
-              target="_blank"
-              rel="noopener"
-            >
-              <div className="status">Open source</div>
+            </div>
+          </div>
+
+          <div className="grid entry">
+            <div className="rail entry-meta">
+              <div className="when">2025</div>
+              <div className="status">Prototype</div>
+            </div>
+            <div className="col entry-body">
               <h3>
-                BGP-LLaMA <span className="arrow">↗</span>
+                <a href="https://github.com/hyonbokan/ai-customs" target="_blank" rel="noopener">
+                  AI Customs <span className="arrow">↗</span>
+                </a>
               </h3>
               <p>
-                Natural-language BGP anomaly detection: a fine-tuned LLaMA + GPT
-                behind a React/Django app that cut manual network-analysis time
-                by 96%. Code on GitHub.
+                Self-hosted LLM that flags discrepancies in customs declarations —
+                Gemma-3-27B on local GPUs (vLLM/TGI) with Docling + OCR parsing and
+                JSON-schema-constrained output, so sensitive trade data never leaves
+                the operator&apos;s environment.
               </p>
-              <div className="tags">
-                <span className="tag-chip">Fine-tuning</span>
-                <span className="tag-chip">LLaMA</span>
-                <span className="tag-chip">Django</span>
+              <div className="chips">
+                <span className="chip">Self-hosted</span>
+                <span className="chip">vLLM / TGI</span>
+                <span className="chip">Docling</span>
               </div>
-            </a>
-            <a
-              className="card"
-              href="https://ieeexplore.ieee.org/document/10583947"
-              target="_blank"
-              rel="noopener"
-            >
-              <div className="status">Published</div>
+            </div>
+          </div>
+
+          <div className="grid entry">
+            <div className="rail entry-meta">
+              <div className="when">2024</div>
+              <div className="status">Open source</div>
+            </div>
+            <div className="col entry-body">
               <h3>
-                Mobile-LLaMA <span className="arrow">↗</span>
+                <a href="https://github.com/hyonbokan/BGP-LLaMA-webservice" target="_blank" rel="noopener">
+                  BGP-LLaMA <span className="arrow">↗</span>
+                </a>
+              </h3>
+              <p>
+                Natural-language BGP anomaly detection: a fine-tuned LLaMA and GPT
+                behind a React/Django app that cut manual network-analysis time by
+                96%.
+              </p>
+              <div className="chips">
+                <span className="chip">Fine-tuning</span>
+                <span className="chip">LLaMA</span>
+                <span className="chip">Django</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid entry">
+            <div className="rail entry-meta">
+              <div className="when">2024</div>
+              <div className="status">Published · IEEE</div>
+            </div>
+            <div className="col entry-body">
+              <h3>
+                <a href={PAPER_URL} target="_blank" rel="noopener">
+                  Mobile-LLaMA <span className="arrow">↗</span>
+                </a>
               </h3>
               <p>
                 Instruction fine-tuning of open-source LLMs for 5G network
                 analysis. First-author paper in IEEE Network Magazine, with a
                 purpose-built training dataset (+90 pts accuracy).
               </p>
-              <div className="tags">
-                <span className="tag-chip">Research</span>
-                <span className="tag-chip">Instruction Tuning</span>
-                <span className="tag-chip">IEEE</span>
+              <div className="chips">
+                <span className="chip">Research</span>
+                <span className="chip">Instruction Tuning</span>
+                <span className="chip">Evaluation</span>
               </div>
-            </a>
-            <a
-              className="card"
-              href="https://github.com/hyonbokan/LLM-research"
-              target="_blank"
-              rel="noopener"
-            >
-              <div className="status">Open source</div>
-              <h3>
-                LLM-Research <span className="arrow">↗</span>
-              </h3>
+            </div>
+          </div>
+        </section>
+
+        {/* CORRESPONDENCE */}
+        <section id="contact" className="section wrap reveal corr">
+          <div className="grid">
+            <div className="rail">
+              <span className="kicker">Correspondence</span>
+            </div>
+            <div className="col">
+              <h2>Let&apos;s talk about applied LLMs.</h2>
               <p>
-                Fine-tuning scripts, synthetic-data generation (self-instruct +
-                few-shot), and custom evaluation harnesses for open-source LLMs.
-                The lab notebook behind the papers.
+                Always happy to compare notes on agents, retrieval, evaluation,
+                and getting open models to production.
               </p>
-              <div className="tags">
-                <span className="tag-chip">PyTorch</span>
-                <span className="tag-chip">Hugging Face</span>
-                <span className="tag-chip">Evaluation</span>
+              <div className="corr-links">
+                <a href="mailto:hyonbokan@gmail.com" className="tlink corr-mail">
+                  hyonbokan@gmail.com
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/khen-bo-kan-2909a716b/"
+                  target="_blank"
+                  rel="noopener"
+                  className="tlink"
+                >
+                  LinkedIn <span className="arrow">↗</span>
+                </a>
               </div>
-            </a>
-          </div>
-        </section>
-
-        {/* WRITING — coded and ready; commented out until posts are published.
-        <section id="writing" className="wrap reveal">
-          <div className="sec-head">
-            <span className="sec-num">04</span>
-            <h2>Writing</h2>
-          </div>
-          <div className="posts">
-            <a className="post" href="#">
-              <span className="post-meta">soon · 6 min</span>
-              <div>
-                <h3>
-                  Agent memory without a vector database{" "}
-                  <span className="arrow">↗</span>
-                </h3>
-                <p>
-                  How a deterministic, unified RAG index serves both code and
-                  memory — and cuts prompt size ~27%.
-                </p>
-              </div>
-            </a>
-            <a className="post" href="#">
-              <span className="post-meta">soon · 5 min</span>
-              <div>
-                <h3>
-                  Cutting audit false positives with a critic pass{" "}
-                  <span className="arrow">↗</span>
-                </h3>
-                <p>
-                  Why a second-stage validation agent beats prompt-tuning alone
-                  for precision.
-                </p>
-              </div>
-            </a>
-            <a className="post" href="#">
-              <span className="post-meta">soon · 8 min</span>
-              <div>
-                <h3>
-                  An in-house LLM router across three providers{" "}
-                  <span className="arrow">↗</span>
-                </h3>
-                <p>
-                  Structured output, tool loops, streaming, and fallback without
-                  a heavy SDK.
-                </p>
-              </div>
-            </a>
-          </div>
-        </section>
-        */}
-
-        {/* CONTACT */}
-        <section id="contact" className="contact wrap reveal">
-          <span className="eyebrow">Contact</span>
-          <h2>
-            Let&apos;s <span className="hl">talk</span>.
-          </h2>
-          <p>
-            Always happy to talk about LLM agents, RAG, and applied AI.
-          </p>
-          <div className="hero-cta" style={{ justifyContent: "center" }}>
-            <a href="mailto:hyonbokan@gmail.com" className="btn primary">
-              hyonbokan@gmail.com
-            </a>
-            <a
-              href="https://www.linkedin.com/in/khen-bo-kan-2909a716b/"
-              target="_blank"
-              rel="noopener"
-              className="btn"
-            >
-              LinkedIn
-            </a>
+            </div>
           </div>
         </section>
       </main>
 
-      <footer>
-        <div className="wrap foot-inner">
-          <span className="c">© 2026 Khen Bo Kan · built from scratch</span>
-          <div className="foot-links">
+      <footer className="colophon">
+        <div className="colophon-inner">
+          <span>© 2026 Khen Bo Kan · Set in Newsreader &amp; IBM Plex Mono · Built from scratch</span>
+          <div className="colophon-links">
             <a href="https://github.com/hyonbokan" target="_blank" rel="noopener">
               GitHub
             </a>
