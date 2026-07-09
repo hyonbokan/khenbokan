@@ -1,13 +1,19 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./provider";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export const metadata: Metadata = {
-  title: "Khen Bo Kan Portfolio",
-  description: "Portfolio built on Next.js",
+  title: "Khen Bo Kan — Applied AI / LLM Engineer",
+  description:
+    "Applied AI / LLM Engineer building autonomous agents, RAG pipelines, and the systems that run them. Behind AuditAgent at Nethermind.",
+  openGraph: {
+    title: "Khen Bo Kan — Applied AI / LLM Engineer",
+    description:
+      "Autonomous LLM agents, RAG, and agent memory in production. Behind AuditAgent at Nethermind.",
+    url: "https://khenbokan.vercel.app",
+    siteName: "Khen Bo Kan",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -16,8 +22,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" suppressHydrationWarning>
+      <body>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
