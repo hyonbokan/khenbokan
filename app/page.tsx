@@ -89,8 +89,7 @@ export default function Home() {
               </div>
 
               <h1 className="rise d2">
-                LLM Systems in Production: research, evaluation, and the parts
-                that break
+                LLM Systems in Production: research, evaluation, and reliability
               </h1>
 
               <div className="hero-author rise d3">
@@ -102,14 +101,16 @@ export default function Home() {
 
               <p className="abstract rise d4">
                 <span className="label">Abstract</span>
-                I build <strong>LLM systems</strong> — and the research and
-                evaluation that keep them reliable under real load. That spans
-                fine-tuning and prompt design, retrieval and agent memory, and
-                the evals and monitoring that catch regressions before users do.
-                In production this powers <strong>AuditAgent</strong>, an AI
-                security auditor trusted by teams like Uniswap, Lido, and UBS; in
-                research it produced <strong>BGP-LLaMA</strong> and a first-author
-                IEEE paper.
+                Applied <strong>LLM engineer</strong> building production LLM and{" "}
+                <strong>agentic</strong> systems. My work centers on autonomous{" "}
+                <strong>AI agent</strong> pipelines, <strong>RAG</strong>{" "}
+                retrieval, and <strong>agent memory</strong> across proprietary
+                and open-source models — with a focus on reliability, cost, and
+                latency in production. In production this powers{" "}
+                <strong>AuditAgent</strong>, an AI security auditor trusted by
+                teams like Uniswap, Lido, and UBS; in research it produced a
+                first-author paper in <strong>IEEE Network Magazine</strong> on
+                fine-tuning LLMs for network analysis.
               </p>
 
               <div className="hero-links rise d5">
