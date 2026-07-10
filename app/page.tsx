@@ -89,7 +89,8 @@ export default function Home() {
               </div>
 
               <h1 className="rise d2">
-                Building language-model systems that survive production.
+                LLM Systems in Production: research, evaluation, and the parts
+                that break
               </h1>
 
               <div className="hero-author rise d3">
