@@ -16,7 +16,7 @@ function ThemeToggle() {
       aria-label="Toggle color theme"
       onClick={() => setTheme(isLight ? "dark" : "light")}
     >
-      {isLight ? "☾" : "☀"}
+      {isLight ? "☾" : "☀︎"}
     </button>
   );
 }
@@ -62,7 +62,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener"
               >
-                résumé ↗
+                résumé {"↗︎"}
               </a>
             </div>
           </div>
@@ -118,7 +118,7 @@ export default function Home() {
                   See the work <span className="arrow">↓</span>
                 </a>
                 <a href={PAPER_URL} target="_blank" rel="noopener" className="tlink">
-                  Read the paper <span className="arrow">↗</span>
+                  Read the paper <span className="arrow">{"↗︎"}</span>
                 </a>
               </div>
             </div>
@@ -279,7 +279,7 @@ export default function Home() {
               <h3>AI Researcher — LLMs for Network Analysis</h3>
               <p>
                 Built BGP-LLaMA, cutting manual network-analysis time by 96% with
-                a fine-tuned LLaMA and prompt-engineered GPT. First-author
+                a fine-tuned LLaMA and few-shot prompted GPT. First-author
                 publication in IEEE Network Magazine (Mobile-LLaMA), including a
                 purpose-built instruction-tuning dataset.
               </p>
@@ -313,7 +313,7 @@ export default function Home() {
             <div className="col entry-body">
               <h3>
                 <a href="https://auditagent.nethermind.io/" target="_blank" rel="noopener">
-                  AuditAgent <span className="arrow">↗</span>
+                  AuditAgent <span className="arrow">{"↗︎"}</span>
                 </a>
               </h3>
               <p>
@@ -337,7 +337,7 @@ export default function Home() {
             <div className="col entry-body">
               <h3>
                 <a href="https://github.com/hyonbokan/ai-customs" target="_blank" rel="noopener">
-                  AI Customs <span className="arrow">↗</span>
+                  AI Customs <span className="arrow">{"↗︎"}</span>
                 </a>
               </h3>
               <p>
@@ -362,7 +362,7 @@ export default function Home() {
             <div className="col entry-body">
               <h3>
                 <a href="https://github.com/hyonbokan/BGP-LLaMA-webservice" target="_blank" rel="noopener">
-                  BGP-LLaMA <span className="arrow">↗</span>
+                  BGP-LLaMA <span className="arrow">{"↗︎"}</span>
                 </a>
               </h3>
               <p>
@@ -386,7 +386,7 @@ export default function Home() {
             <div className="col entry-body">
               <h3>
                 <a href={PAPER_URL} target="_blank" rel="noopener">
-                  Mobile-LLaMA <span className="arrow">↗</span>
+                  Mobile-LLaMA <span className="arrow">{"↗︎"}</span>
                 </a>
               </h3>
               <p>
@@ -410,10 +410,9 @@ export default function Home() {
               <span className="kicker">Correspondence</span>
             </div>
             <div className="col">
-              <h2>Let&apos;s talk about applied LLMs.</h2>
+              <h2>Contact me</h2>
               <p>
-                Always happy to compare notes on agents, retrieval, evaluation,
-                and getting open models to production.
+                Always happy to compare notes on agents, retrieval, and evaluation.
               </p>
               <div className="corr-links">
                 <a href="mailto:hyonbokan@gmail.com" className="tlink corr-mail">
@@ -425,7 +424,7 @@ export default function Home() {
                   rel="noopener"
                   className="tlink"
                 >
-                  LinkedIn <span className="arrow">↗</span>
+                  LinkedIn <span className="arrow">{"↗︎"}</span>
                 </a>
               </div>
             </div>
@@ -435,7 +434,7 @@ export default function Home() {
 
       <footer className="colophon">
         <div className="colophon-inner">
-          <span>© 2026 Khen Bo Kan · Set in Newsreader &amp; IBM Plex Mono · Built from scratch</span>
+          <span>© 2026 Khen Bo Kan</span>
           <div className="colophon-links">
             <a href="https://github.com/hyonbokan" target="_blank" rel="noopener">
               GitHub
