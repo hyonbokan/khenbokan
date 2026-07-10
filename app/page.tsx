@@ -286,7 +286,7 @@ export default function Home() {
                 <span className="chip">PyTorch</span>
                 <span className="chip">Hugging Face</span>
                 <span className="chip">IEEE</span>
-                <span className="chip">Django</span>
+                <span className="chip">FastAPI</span>
               </div>
             </div>
           </div>
@@ -364,14 +364,14 @@ export default function Home() {
                 </a>
               </h3>
               <p>
-                Natural-language BGP anomaly detection: a fine-tuned LLaMA and GPT
-                behind a React/Django app that cut manual network-analysis time by
-                96%.
+                Natural-language BGP anomaly detection: a fine-tuned LLaMA
+                (served with vLLM) and GPT behind a React/FastAPI app that cut
+                manual network-analysis time by 96%.
               </p>
               <div className="chips">
                 <span className="chip">Fine-tuning</span>
                 <span className="chip">LLaMA</span>
-                <span className="chip">Django</span>
+                <span className="chip">vLLM</span>
               </div>
             </div>
           </div>
