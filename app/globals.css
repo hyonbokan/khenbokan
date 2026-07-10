@@ -194,14 +194,16 @@ a {
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--rule);
 }
+/* nav rides the same spine: brand over the rail, links + actions
+   span the content column like the hero's running head */
 .nav-inner {
   max-width: var(--maxw);
   margin: 0 auto;
   padding: 15px var(--pad);
-  display: flex;
+  display: grid;
+  grid-template-columns: var(--rail) 1fr;
+  gap: var(--gap);
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
 }
 .nav-name {
   font-family: var(--font-serif);
@@ -209,10 +211,16 @@ a {
   font-weight: 500;
   letter-spacing: -0.01em;
 }
-.nav-right {
+.nav-content {
   display: flex;
   align-items: center;
-  gap: 26px;
+  justify-content: space-between;
+  gap: 20px;
+}
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
 }
 .nav-links {
   display: flex;
@@ -624,11 +632,22 @@ a {
   body {
     font-size: 16px;
   }
+  /* nav collapses to brand + actions in a single row */
+  .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .nav-content {
+    flex: 1;
+    justify-content: flex-end;
+    gap: 16px;
+  }
   .nav-links {
     display: none;
   }
   .spec-row {
-    grid-template-columns: 96px 1fr;
+    grid-template-columns: 92px 1fr;
     gap: 14px;
   }
   .results .src {

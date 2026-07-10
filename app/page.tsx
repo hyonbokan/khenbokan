@@ -46,7 +46,7 @@ export default function Home() {
           <a href="#top" className="nav-name">
             Khen Bo Kan
           </a>
-          <div className="nav-right">
+          <div className="nav-content">
             <div className="nav-links">
               <a href="#glance">overview</a>
               <a href="#results">results</a>
@@ -54,15 +54,17 @@ export default function Home() {
               <a href="#work">work</a>
               <a href="#contact">contact</a>
             </div>
-            <ThemeToggle />
-            <a
-              href="/Khen_Bo_Kan_CV_AI.pdf"
-              className="nav-resume"
-              target="_blank"
-              rel="noopener"
-            >
-              résumé ↗
-            </a>
+            <div className="nav-actions">
+              <ThemeToggle />
+              <a
+                href="/Khen_Bo_Kan_CV_AI.pdf"
+                className="nav-resume"
+                target="_blank"
+                rel="noopener"
+              >
+                résumé ↗
+              </a>
+            </div>
           </div>
         </div>
       </nav>
