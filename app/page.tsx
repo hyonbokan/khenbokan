@@ -331,6 +331,32 @@ export default function Home() {
 
           <div className="grid entry">
             <div className="rail entry-meta">
+              <div className="when">2026</div>
+              <div className="status">Open source</div>
+            </div>
+            <div className="col entry-body">
+              <h3>
+                <a href="https://github.com/hyonbokan/opencode-agent-pod" target="_blank" rel="noopener">
+                  Opencode Agent Pod <span className="arrow">{"↗︎"}</span>
+                </a>
+              </h3>
+              <p>
+                Turns opencode — a CLI coding agent — into a
+                programmable, fully autonomous agent behind an HTTP/SSE API; each
+                request runs a complete tool loop in an isolated sandbox.
+                General-purpose agent capability any project can drop in, well
+                beyond coding.
+              </p>
+              <div className="chips">
+                <span className="chip">Agent infra</span>
+                <span className="chip">Sandbox</span>
+                <span className="chip">MCP</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid entry">
+            <div className="rail entry-meta">
               <div className="when">2025</div>
               <div className="status">Prototype</div>
             </div>
